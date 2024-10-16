@@ -32,7 +32,7 @@ Este projeto é uma aplicação Spring Boot que permite gerenciar o cadastro e c
         "biografia": "Biografia do Autor"
     },
     "livro": {
-        "titulo": "seukapasoasjcjadjaid",
+        "titulo": "teste",
         "data": "2014-10-21", // data no formato YYYY-MM-DD
         "preco": 0
         
