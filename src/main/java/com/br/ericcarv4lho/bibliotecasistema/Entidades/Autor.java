@@ -1,8 +1,6 @@
 package com.br.ericcarv4lho.bibliotecasistema.Entidades;
 
 
-
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
@@ -23,16 +21,13 @@ import java.util.List;
 @NoArgsConstructor
 public class Autor {
     @Id
-    @GeneratedValue(
-            strategy = GenerationType.IDENTITY
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
     private String nacionalidade;
     private String biografia;
 
     @OneToMany(mappedBy = "autor", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = false)
-
     private List<Livro> livros = new ArrayList<>();
 
 

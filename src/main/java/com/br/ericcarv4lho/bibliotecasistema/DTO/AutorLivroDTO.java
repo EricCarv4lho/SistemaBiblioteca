@@ -13,11 +13,11 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AutorLivroDTO {
+
     @NotNull(message = "Autor não pode ser nulo")
-
     private Autor autor;
-    @NotNull(message = "Livro não pode ser nulo")
 
+    @NotNull(message = "Livro não pode ser nulo")
     private Livro livro;
 
 

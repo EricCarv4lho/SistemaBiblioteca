@@ -30,9 +30,8 @@ public class LivroController {
     private AutorLivroDTO autorLivroDTO;
 
 
-
     @GetMapping({"/listar"})
-    public ResponseEntity<List<LivroDTO>> listarLivros(){
+    public ResponseEntity<List<LivroDTO>> listarLivros() {
         List<Livro> livros = livroServicos.listarLivros();
         List<LivroDTO> livroDTOs = livros.stream()
                 .map(livro -> livroServicos.toDTO(livro))
@@ -55,9 +54,6 @@ public class LivroController {
     }
 
 
-
-
-
     @PostMapping("/adicionar")
     public ResponseEntity<LivroDTO> criarAutorELivro(@RequestBody AutorLivroDTO autorLivroDTO) {
         Autor novoAutor = autorServicos.adicionarAutor(autorLivroDTO.getAutor());
@@ -69,7 +65,7 @@ public class LivroController {
     @PutMapping("/{id}")
     public ResponseEntity<Livro> atualizarLivro(@PathVariable Long id, @RequestBody Livro livro) {
 
-       Livro livroAtualizado = livroServicos.atualizarLivro(id,livro);
+        Livro livroAtualizado = livroServicos.atualizarLivro(id, livro);
         return ResponseEntity.status(HttpStatus.OK).body(livroAtualizado);
     }
 

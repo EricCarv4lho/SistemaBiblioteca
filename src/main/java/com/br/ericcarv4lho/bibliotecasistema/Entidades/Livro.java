@@ -1,7 +1,6 @@
 package com.br.ericcarv4lho.bibliotecasistema.Entidades;
 
 
-
 import jakarta.persistence.*;
 
 import jakarta.validation.constraints.DecimalMin;
@@ -25,21 +24,19 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class Livro {
     @Id
-    @GeneratedValue(
-            strategy = GenerationType.IDENTITY
-    )
-
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codigo;
+
     @NotBlank
-
     private String titulo;
+
     private LocalDate data;
-    @NotNull( message = "Preço não pode ser nulo")
+
+    @NotNull(message = "Preço não pode ser nulo")
     @DecimalMin(value = "0.0", message = "Preço deve ser um valor igual ou maior que zero")
-
     private double preco;
-    @NotNull(message = "Autor não pode ser nulo")
 
+    @NotNull(message = "Autor não pode ser nulo")
     @ManyToOne
     private Autor autor;
 
@@ -50,7 +47,6 @@ public class Livro {
         this.preco = preco;
         this.autor = autor;
     }
-
 
 
 }

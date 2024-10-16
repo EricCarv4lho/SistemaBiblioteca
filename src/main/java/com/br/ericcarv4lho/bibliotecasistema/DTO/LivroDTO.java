@@ -10,9 +10,13 @@ import java.time.LocalDate;
 public class LivroDTO {
 
     private Long codigo;
+
     private String titulo;
+
     private LocalDate data;
+
     private double preco;
+
     private AutorDTO autor;
 
 

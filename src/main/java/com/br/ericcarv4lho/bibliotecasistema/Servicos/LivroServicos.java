@@ -9,7 +9,7 @@ import com.br.ericcarv4lho.bibliotecasistema.Repositorios.LivroRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,11 +20,11 @@ public class LivroServicos {
     private LivroRepositorio livroRepositorio;
 
 
-
     public Livro adicionarLivroComAutor(Autor autor, Livro livro) {
         livro.setAutor(autor); // Associar o autor ao livro
         return livroRepositorio.save(livro);
     }
+
     public Page<Livro> listarLivrosComPaginacao(Pageable pageable) {
         Page<Livro> livros = livroRepositorio.findAll(pageable);
         if (livros.isEmpty()) {
@@ -35,8 +35,8 @@ public class LivroServicos {
 
     }
 
-    public List<Livro> listarLivros(){
-      return livroRepositorio.findAll();
+    public List<Livro> listarLivros() {
+        return livroRepositorio.findAll();
     }
 
     public Livro atualizarLivro(Long id, Livro livro) {
@@ -61,7 +61,7 @@ public class LivroServicos {
 
     public Page<Livro> listarLivrosPorNomeDoAutor(String nome, Pageable pageable) {
 
-       return livroRepositorio.findByAutor_NomeContaining(nome,pageable);
+        return livroRepositorio.findByAutor_NomeContaining(nome, pageable);
 
 
     }
