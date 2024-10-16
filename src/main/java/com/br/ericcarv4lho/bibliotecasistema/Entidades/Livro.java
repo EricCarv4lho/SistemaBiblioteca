@@ -2,77 +2,55 @@ package com.br.ericcarv4lho.bibliotecasistema.Entidades;
 
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.time.LocalDate;
-import lombok.Generated;
+
 
 @Entity
 @Table(
         name = "livros"
 )
+@Getter
+@Setter
+
+@NoArgsConstructor
 public class Livro {
     @Id
     @GeneratedValue(
             strategy = GenerationType.IDENTITY
     )
-    private Long Codigo;
+
+    private Long codigo;
+    @NotBlank
+
     private String titulo;
     private LocalDate data;
+    @NotNull( message = "Preço não pode ser nulo")
+    @DecimalMin(value = "0.0", message = "Preço deve ser um valor igual ou maior que zero")
+
     private double preco;
+    @NotNull(message = "Autor não pode ser nulo")
 
-    @Generated
-    public Long getCodigo() {
-        return this.Codigo;
-    }
+    @ManyToOne
+    private Autor autor;
 
-    @Generated
-    public String getTitulo() {
-        return this.titulo;
-    }
 
-    @Generated
-    public LocalDate getData() {
-        return this.data;
-    }
-
-    @Generated
-    public double getPreco() {
-        return this.preco;
-    }
-
-    @Generated
-    public void setCodigo(final Long Codigo) {
-        this.Codigo = Codigo;
-    }
-
-    @Generated
-    public void setTitulo(final String titulo) {
-        this.titulo = titulo;
-    }
-
-    @Generated
-    public void setData(final LocalDate data) {
-        this.data = data;
-    }
-
-    @Generated
-    public void setPreco(final double preco) {
-        this.preco = preco;
-    }
-
-    @Generated
-    public Livro(final Long Codigo, final String titulo, final LocalDate data, final double preco) {
-        this.Codigo = Codigo;
+    public Livro(String titulo, LocalDate data, double preco, Autor autor) {
         this.titulo = titulo;
         this.data = data;
         this.preco = preco;
+        this.autor = autor;
     }
 
-    @Generated
-    public Livro() {
-    }
+
+
 }
