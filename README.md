@@ -26,13 +26,18 @@ Este projeto é uma aplicação Spring Boot que permite gerenciar o cadastro e c
 - **Corpo da Requisição**:
   ```json
   {
-    "titulo": "Título do Livro",
-    "data": "2024-10-14",
-    "preco": 29.99,
     "autor": {
-      "id": 1
+        "nome": "Joana",
+        "nacionalidade": "Brasileira",
+        "biografia": "Biografia do Autor"
+    },
+    "livro": {
+        "titulo": "seukapasoasjcjadjaid",
+        "data": "2014-10-21", // data no formato YYYY-MM-DD
+        "preco": 0
+        
     }
-  }
+}
 
     ```
 ### Listar Livros
