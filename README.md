@@ -90,3 +90,39 @@ size=2 significa que você quer receber 2 livros por página.
   "totalElementos": 50
 }
  ```
+### Atualizar Livro
+- **Endpoint**: /livros/atualizar/{id}
+- **Método:** PUT
+- **Descrição**: Atualiza as informações de um livro existente.
+- **Parâmetros de URL**:
+- **id**: ID do livro a ser atualizado.
+
+### Corpo da Requisição
+O corpo da requisição deve conter um objeto no formato JSON com as seguintes propriedades:
+
+```json
+{
+    "titulo": "Novo Título",
+    "data": "2024-01-01",
+    "preco": 20.0,
+    "autorDTO": {
+        "id": 6,
+        "nome": "Nome do Autor",
+        "nacionalidade": "Nacionalidade do Autor",
+        "biografia": "Nova Biografia do Autor"
+    }
+}
+```
+### Excluir Livro
+- **Endpoint**: /livros/atualizar/{id}
+- **Método**: DELETE
+
+
+  
+
+- **id**: Código do livro a ser excluído.
+
+**Resposta**: Retorna uma mensagem de sucesso ou erro.
+
+
+
